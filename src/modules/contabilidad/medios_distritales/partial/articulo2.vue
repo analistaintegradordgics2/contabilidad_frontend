@@ -1,0 +1,104 @@
+<template>
+  <q-page class="q-ma-lg q-ml-lg">
+    <q-table
+            class="q-mt-md"
+            flat
+            bordered
+            dense
+            row-key="name"
+            :data="value"
+            :columns="columns"
+            :filter="filter"
+            :rows-per-page-options="[0]"
+            :pagination.sync="pagination"
+          >
+            <!-- <template v-slot:header="props">
+              <q-tr :props="props">
+                <q-th>
+                  <q-checkbox v-model="seltodos" @input="selectAll($event)" />
+                </q-th>
+                <q-th v-for="col in props.cols" :key="col.name" :props="props">{{
+                  col.label
+                }}</q-th>
+              </q-tr>
+            </template> -->
+            <template v-slot:body="props">
+              <q-tr>
+                <q-td auto-width>{{ props.row.vigencia }}</q-td>
+                <q-td auto-width>{{ props.row.tipo_doc }}</q-td>
+                <q-td auto-width>{{ props.row.documento }}</q-td>
+                <q-td style="white-space: normal">
+                  <div style="width: 300px">
+                    {{ props.row.n_completo }}
+                  </div>
+                </q-td>
+                <!-- <q-td auto-width>{{ props.row.razon_social }}</q-td> -->
+                <q-td style="white-space: normal">
+                  <div style="width: 300px">
+                    {{ props.row.direccion }}
+                  </div>
+                </q-td>
+                <q-td auto-width>{{ props.row.telefono }}</q-td>
+                <q-td auto-width>{{ props.row.email }}</q-td>
+                <q-td auto-width>{{ props.row.codigo_municipio }}</q-td>
+                <q-td auto-width>{{ props.row.codigo_dpto }}</q-td>
+                <q-td auto-width>{{ props.row.concepto_pago }}</q-td>
+                <q-td auto-width>{{ formatMoney(props.row.Valor_bruto) }}</q-td>
+                <q-td auto-width>{{ formatMoney(props.row.valor_total) }}</q-td>
+              </q-tr>
+            </template>
+          </q-table>
+    <!-- <q-card flat> </q-card> -->
+  </q-page>
+</template>
+
+<script>
+export default {
+
+  props: {
+    value: {
+      type: Array,
+      default: () => [],
+    },
+  },
+
+
+  data() {
+    return {
+      columns: [
+        { name: "vigencia", label: "Vigencia", align: "left", field: "vigencia" },
+        { name: "tipo_doc", label: "Tipo Doc", align: "left", field: "tipo_doc" },
+        { name: "documento", label: "Documento", align: "left", field: "documento" },
+        { name: "n_completo", label: "Nombre Completo", align: "left", field: "n_completo" },
+        { name: "direccion", label: "Dirección", align: "left", field: "direccion"},
+        { name: "telefono", label: "Teléfono", align: "left", field: "telefono" },
+        { name: "email", label: "Email", align: "left", field: "email" },
+        { name: "codigo_municipio", label: "Cod. Ciudad", align: "left", field: "codigo_municipiocodigo_municipio" },
+        { name: "codigo_dpto", label: "Cod. Depto", align: "left", field: "codigo_dpto" },
+        { name: "concepto_pago", label: "Concepto", align: "left", field: "concepto_pago" },
+        { name: "Valor_bruto", label: "Compras", align: "left", field: "Valor_bruto" },
+        { name: "valor_total", label: "Devoluciones", align: "left", field: "valor_total" },
+      ],
+      filter: "",
+      pagination: {
+        rowsPerPage: 50,
+      },
+    };
+  },
+  methods: {
+    formatMoney(val) {
+      if (val == null) {
+        val = 0;
+      }
+      const formatterPeso = new Intl.NumberFormat("es-CO", {
+        style: "currency",
+        currency: "COP",
+        minimumFractionDigits: 0,
+      });
+      return formatterPeso.format(val);
+    },
+    },
+    created() {
+    },
+};
+</script>
