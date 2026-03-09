@@ -1,15 +1,15 @@
 import routes from "./routes/contabilidad_routes"
 
 export default {
+  install(Vue, { router }) {
 
- install(Vue, { router }) {
+    if (!router) {
+      console.error("Router no disponible")
+      return
+    }
 
-   routes.forEach(route => {
-     router.addRoute(route)
-   })
+    router.addRoutes(routes)
 
-   console.log("Modulo contabilidad cargado")
-
- }
-
+    console.log("Modulo contabilidad cargado")
+  }
 }
