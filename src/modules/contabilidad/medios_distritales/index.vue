@@ -274,7 +274,7 @@ import articulo4 from "./partial/articulo4.vue";
 import articulo6 from "./partial/articulo6.vue";
 // import articulo10 from "./partial/articulo10.vue";
 import articulo12 from "./partial/articulo12.vue";
-import inconsistencias from 'pages/contabilidad/medios_distritales/partial/inconsistencias/index.vue'
+import inconsistencias from '../medios_distritales/partial/inconsistencias/index.vue'
 
 export default {
   layout: "main",

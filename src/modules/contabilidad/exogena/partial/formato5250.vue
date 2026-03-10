@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import tabMovimientos from 'pages/contabilidad/exogena/partial/forms/tabMovimientos.vue'
-import tabFormato from 'pages/contabilidad/exogena/partial/forms/tabFormato.vue'
+import tabMovimientos from '../../exogena/partial/forms/tabMovimientos.vue'
+import tabFormato from '../../exogena/partial/forms/tabFormato.vue'
 import fileDownload from 'js-file-download'
 
 export default {

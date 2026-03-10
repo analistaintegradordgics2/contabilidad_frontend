@@ -395,8 +395,8 @@
 
 <script>
 import moment from "moment";
-import modalpago from "pages/contabilidad/cargos_fijos/partial/modalpago.vue";
-import verdocumentos from "pages/contabilidad/procesos/documentos/partial/crear.vue";
+import modalpago from "./cargos_fijos/partial/modalpago.vue";
+import verdocumentos from "./procesos/documentos/partial/crear.vue";
 export default {
   components: { modalpago, verdocumentos },
   layout: "main",

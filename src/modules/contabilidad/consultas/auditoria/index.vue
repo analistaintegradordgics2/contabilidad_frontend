@@ -179,7 +179,7 @@ import { mapActions, mapState } from "vuex";
 import moment from "moment";
 import imprimirconsulta from "./partial/imprimir";
 import fileDownload from "js-file-download";
-import verdocumentos from "pages/contabilidad/procesos/documentos/partial/crear.vue"
+import verdocumentos from "./procesos/documentos/partial/crear.vue"
 export default {
   layout: "main",
   name: "index",
